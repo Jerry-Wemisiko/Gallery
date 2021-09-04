@@ -19,6 +19,7 @@ class Image(models.Model):
     description = models.CharField(max_length=100)
     location = models.ForeignKey(Location,on_delete=models.CASCADE)
     category = models.ManyToManyField(Category)
+    image = models.ImageField()
 
     def save_image(self):
         self.save()
