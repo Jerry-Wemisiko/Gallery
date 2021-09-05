@@ -14,6 +14,9 @@ class Category(models.Model):
     def __str__(self) -> str:
         return self.category
 
+    class Meta:
+        verbose_name_plural = 'Categories'
+
 class Image(models.Model):
     name = models.CharField(max_length=15)
     description = models.CharField(max_length=100)
