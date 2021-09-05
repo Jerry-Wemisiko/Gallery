@@ -24,8 +24,17 @@ class Image(models.Model):
     category = models.ForeignKey(Category,on_delete=models.CASCADE)
     image = models.ImageField(upload_to = 'imgs/')
 
+
+    def __str__(self) -> str:
+        return self.name
+        
     def save_image(self):
         self.save()
+
+    class Meta:
+        ordering = ['name']
+
+    
 
     
 
