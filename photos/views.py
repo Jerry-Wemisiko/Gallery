@@ -5,16 +5,17 @@ from .models import Image
 
 # Create your views here.
 def homepage(request):
+
     title = 'Home'
-    images = Image.objects.get()
-    return render(request, 'all-photos/photos.html',{'title':title, "image":images})
+    images = Image.objects.get_images()
+    return render(request, 'all-photos/photos.html',{'title':title, "images":images})
 
 
 def search_results(request):
-    if 'photo' in request.GET and request.GET['photos']:
-        search_image = request.GET('article')
+    if 'category' in request.GET and request.GET["category"]:
+        search_image = request.GET("category")
         searched_images = Image.search_image_category(search_image)
-        message = f'search_image'
+        message = f'{search_image}'
 
         return render(request, 'all-photos/search.html', {'message':message, "photos":searched_images})
     else:  

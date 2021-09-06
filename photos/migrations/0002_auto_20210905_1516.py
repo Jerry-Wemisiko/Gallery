@@ -26,6 +26,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='image',
             name='category',
-            field=models.ForeignKey(default=1, on_delete=django.db.models.deletion.CASCADE, to='photos.category'),
+            field=models.ForeignKey(default=django.db.models.deletion.SET_NULL, on_delete=django.db.models.deletion.CASCADE, to='photos.category'),
         ),
     ]

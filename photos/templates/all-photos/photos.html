@@ -4,10 +4,11 @@
 
 <div class="container">
 
-    {% for photo in photos %}
+    {% for photo in images %}
     <div class="row">
         <div class="col-xs-6 col-md-6 col-lg-6">
-            <h2 class="text-center">{{photo.name}}</h2>
+
+            <a href="{{photo.image.url}} " alt="image" width ='400px'></a>
         </div>
     {% empty %}
         <div class="row">
