@@ -1,7 +1,24 @@
+from photos.views import location
 from django.test import TestCase
 from .models import Image,Location,Category
 
 # Create your tests here.
+
+class LocationTest(TestCase):
+    def setUp(self):
+        self.kanairo = Location(location = 'Nairobi')
+        self.kanairo.save_location()
+
+    def tearDown(self):
+        self.kanairo.delete_location()
+
+
+    def test_update_location(self):
+        location = Location.get_location_by_id(self.kanairo.id)
+        location.update_location('Monaco')
+        location = Location.get_location_by_id(self.kanairo.id)
+        self.assertTrue(location.location == 'Monaco')
+
 
 class ImageTest(TestCase):
    
@@ -15,8 +32,6 @@ class ImageTest(TestCase):
 
         self.lifestyle = Category(category = 'Lifestyle')
         self.lifestyle.save_category()
-
-    
 
     def tearDown(self):
         self.funny.delete_image()

@@ -1,3 +1,4 @@
+from photos.views import location
 from django.db import models
 from cloudinary.models import CloudinaryField
 
@@ -13,6 +14,16 @@ class Location(models.Model):
 
     def delete_location(self):
         return self.delete()
+
+    def update_location(self):
+        return self.update()
+
+    @classmethod
+    def get_location_by_id(self,id):
+        location = Location.objects.get(id=id)
+        return location
+    
+
     
     
 
