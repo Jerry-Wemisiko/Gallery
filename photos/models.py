@@ -10,6 +10,9 @@ class Location(models.Model):
     
     def save_location(self):
         return self.save()
+
+    def delete_location(self):
+        return self.delete()
     
     
 
@@ -20,8 +23,16 @@ class Category(models.Model):
     def __str__(self) -> str:
         return self.category
 
+
+    def save_category(self):
+        return self.save()
+
+    def delete_category(self):
+        return self.delete()
+        
     class Meta:
         verbose_name_plural = 'Categories'
+
 
 class Image(models.Model):
     name = models.CharField(max_length=15)
@@ -54,7 +65,7 @@ class Image(models.Model):
         return images
 
     @classmethod
-    def get_images_by_id(self,id):
+    def get_image_by_id(self,id):
         image = Image.objects.get(id=id)
         return image
 

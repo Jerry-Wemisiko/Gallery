@@ -6,15 +6,33 @@
 
     {% for photo in images %}
     <div class="row">
+        
         <div class="col-xs-6 col-md-6 col-lg-6">
-
-            <a href="{{photo.image.url}} " alt="image" width ='400px'></a>
+            <h3 class="text-center">{{photo.name}}</h3>
+            <a data-toggle="moddle"> <img src="{{photo.image.url}}" alt="Image" height="250px" width="200px"></a>
         </div>
     {% empty %}
         <div class="row">
             <h2 class="text-center">No photos</h2>
         </div>
     {% endfor %} 
+    </div>
+
+    <div class="modal fade" id="{{photo.id}}" role="dialog" data-target="">
+        <div class="modal-dialog modal-lg" >
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">{{photo.name}}</h5> 
+                </div>
+
+                <div class="modal-body">
+                    <img src="{{photo.image.url}}" alt="Image" height="400px" width="300px">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
     </div>
 
 </div>
