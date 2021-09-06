@@ -6,6 +6,8 @@ class Location(models.Model):
 
     def __str__(self) -> str:
         return self.location
+    
+    
 
 
 class Category(models.Model):
@@ -23,6 +25,10 @@ class Image(models.Model):
     location = models.ForeignKey(Location,on_delete=models.CASCADE)
     category = models.ForeignKey(Category,on_delete=models.CASCADE ,blank= True)
 
+    
+    def search_by_location(cls,search_image):
+        images = cls.object.filter(location__icontains = search_image)
+        return images
 
 
     def __str__(self) -> str:
@@ -36,6 +42,8 @@ class Image(models.Model):
 
     def delete_image(self):
         self.delete()
+
+    
 
     
 
