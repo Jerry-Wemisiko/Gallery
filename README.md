@@ -20,11 +20,10 @@ To access this project on your local files, you can clone it using these steps
 Or you can access the web application directly via this [LIVE LINK](https://skylesgallery.herokuapp.com/).
 ******
 ## Dependencies
-*
 *Django
 *django-bootstrap4
-*gunicor
-*Pillow
+*gunicorn
+*Cloudinary
 *****
 ## Technologies Used
 * HTML
