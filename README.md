@@ -2,8 +2,7 @@
 ## Author
 Jerry Wemisiko
 *****
-This is a Python Flask application that one can use to easily Post and read Quotes for personal motivation and also get to explore other quotes posted
-*****
+a personal gallery application that you display your photos for others to see.*****
 *****
 ### Prerequisites
 * Python 3
