@@ -9,3 +9,6 @@ migrate:
 
 collectstatic:
 	python3 manage.py collectstatic
+
+superuser:
+	python3 manage.py createsuperuser

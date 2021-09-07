@@ -15,6 +15,8 @@ from os import environ
 import dj_database_url as db_url
 import os
 import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -154,7 +156,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 #cloudinary settings
 cloudinary.config(
-  cloud_name = 'di4lsv4s9',  
-  api_key = '235771331651163',  
-  api_secret = 'XGUGtUfIqexXDOQyA55thI9Q3tU'  
+  cloud_name = environ.get('CLOUDINARY_CLOUD_NAME'),
+  api_key = environ.get('CLOUDINARY_API_KEY'),
+  api_secret = environ.get('CLOUDINARY_API_SECRET') 
 )
