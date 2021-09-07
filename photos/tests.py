@@ -52,7 +52,21 @@ class ImageTest(TestCase):
         self.assertTrue(len(images)>0)
 
     
+class CategoryTestClass(TestCase):
+    # Set Up Method
+    def setUp(self):
+        self.lifestyle = Category(category='Lifestyle')
+        self.lifestyle.save_category()
 
+    
+    def tearDown(self):
+        self.lifestyle.delete_category()
+    
+    def test_updating_category(self):
+        category = Category.get_category_id(self.lifestyle.id)
+        category.update_category('Tech')
+        category = Category.get_category_id(self.lifestyle.id)
+        self.assertTrue(category.category == 'Tech')
     
         
     

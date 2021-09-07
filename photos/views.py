@@ -11,15 +11,13 @@ def homepage(request):
     return render(request, 'all-photos/photos.html',{'title':title, "images":images})
 
 
-def location(request,id):
-    try:
-        location = Location.objects.get(id = id)
-        images = Image.objects.filter(location = location.id)
-    except:
-        raise Http404()
+def location(request,location):
+
+    images = Image.objects.filter(location = location.id)
+    
     return render(request, 'all-photos/location.html', {'location':location, 'images':images})
 
-    
+
 def search_results(request):
     if 'category' in request.GET and request.GET["category"]:
         search_image = request.GET("category")

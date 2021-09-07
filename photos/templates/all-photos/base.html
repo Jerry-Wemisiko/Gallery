@@ -1,6 +1,5 @@
-{% load bootstrap4 %}
+{% load bootstrap4%}
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,9 +11,9 @@
     <title>Gallery</title>
     {% endif %}
 
-    {% block styles %}
+    {% block styles%}
         {% bootstrap_css %}
-
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     {% endblock %}
 
 </head>
@@ -22,7 +21,7 @@
     {% include 'navbar.html' %}
     
     {% block content %}
-        <h2 class="text-center">Hello Fam, Welcome to my Gallery</h2>
+        <h1 class="text-center">Hello Fam, Welcome to my Gallery</h1>
     {% endblock %}
 
     {% block scripts %}

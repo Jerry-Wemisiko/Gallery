@@ -1,46 +1,65 @@
 {% extends 'all-photos/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" media="screen" href="styles.css">
+    <script src="main.js"></script>
+</head>
+
+<body>
+    
 {% block content %}
 
-<div class="container">
+        {% for photo in images %}
+            <div class="container">
 
-    {% for photo in images %}
-    <div class="row">
+                
+                <div class="row" id="photo">
 
-        <div class="col-xs-6 col-md-6 col-lg-6">
-            <h5>{{photo.name}}</h5>
-            <a data-toggle="moddle"> <img src="{{photo.image.url}}" alt="Image" height="200px" width="200px"
-                    class="img-responsive"></a>
-        </div>
-    
-
-    </div>
-
-    <div class="modal fade" id="{{photo.id}}" role="dialog" data-target="">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">{{photo.name}}</h5>
-                </div>
-
-                <div class="modal-body">
-                    <img src="{{photo.image.url}}" alt="Image" height="400px" width="300px" class="img-responsive">
-                    <div class="moreinfo">
-                        <p>{{photo.description}}</p>
+                    <div class=" col-sm-12 ">
+                        <h5 class="head">{{photo.name}}</h5>
+                        <a data-toggle="modal" href="" data-target="#{{photo.id}}"> <img src="{{photo.image.url}}" alt="Image"
+                                height="200px" width="200px" class="img-responsive"></a>
                     </div>
 
+
                 </div>
 
-                <div class="modal-footer">
-                    <button type="button" data-dismiss="modal">Close</button>
+                <div class="modal fade" id="{{photo.id}}" role="dialog">
+                    <div class="modal-dialog">
+
+                        <div class="modal-content modal-lg">
+                            <div class="modal-header">
+                                <h5 class="modal-title">{{photo.name}}</h5>
+                            </div>
+
+                            <div class="modal-body">
+                                <img class="img-responsive" src="{{photo.image.url}}" alt="Image" height="400px" width="300px" >
+                                <div class="moreinfo">
+                                    <p>{{photo.description}}</p>
+                                </div>
+
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-            </div>
+        {% endfor%}
 
         </div>
-    </div>
-{% endfor%}
-
-</div>
 
 
-{% endblock %}
+    {% endblock %}
+
+</body>
+
+</html>

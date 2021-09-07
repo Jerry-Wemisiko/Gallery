@@ -1,4 +1,3 @@
-from photos.views import location
 from django.db import models
 from cloudinary.models import CloudinaryField
 
@@ -40,7 +39,13 @@ class Category(models.Model):
 
     def delete_category(self):
         return self.delete()
-        
+    
+    @classmethod
+    def get_category_id(cls,id):
+      category= Category.objects.get(id=id)
+      return category
+    
+
     class Meta:
         verbose_name_plural = 'Categories'
 
@@ -72,8 +77,8 @@ class Image(models.Model):
 
     @classmethod
     def get_images(cls):
-        images = Image.objects.all()
-        return images
+        all_images = Image.objects.all()
+        return all_images
 
     @classmethod
     def get_image_by_id(self,id):
