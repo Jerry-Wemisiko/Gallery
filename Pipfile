@@ -10,6 +10,7 @@ dj-database-url = "*"
 whitenoise = "*"
 gunicorn = "*"
 cloudinary = "*"
+django-heroku = "*"
 
 [dev-packages]
 

@@ -1,6 +1,4 @@
 {% extends 'all-photos/base.html' %}
-{% load bootstrap4 %}
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,26 +6,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% block styles %}
-    {% bootstrap_css %}
-         <link rel="stylesheet" href="../../static/css/photo.css">
-    {% endblock %}
 </head>
 
 <body>
     
 {% block content %}
 
+<h1 class="text-center">Welcome to App-Gallery</h1>
         
-            <div class="container">
+    <div class="container">
         {% for photo in images %}
                 
                 <div class="row" id="photo">
 
-                    <div class=" col-sm-12 ">
+                    <div class="col-sm-12 ">
                         <h5 class="head">{{photo.name}}</h5>
-                        <a data-toggle="modal" href="" data-target="#{{photo.id}}"> <img src="{{photo.image.url}}" alt="Image"
-                                height="200px" width="200px" class="img-responsive"></a>
+                        
+                        <a data-toggle="modal" href="" data-target="#{{photo.id}}"> <img src="{{photo.image.url}}" alt="Image" height="300px" width="300px" class="img-responsive"></a>
+
                     </div>
 
 
@@ -58,7 +54,7 @@
                 </div>
         {% endfor%}
 
-        </div>
+    </div>
 
 
     {% endblock %}

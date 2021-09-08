@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 from os import environ
 import dj_database_url as db_url
+import django_heroku
 import os
 import cloudinary
 import cloudinary.uploader
@@ -138,11 +139,15 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
+# STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
 
-STATIC_ROOT = BASE_DIR / 'static'
-# STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+    os.path.join(BASE_DIR, 'static'), 
+
+]
+
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
@@ -150,9 +155,9 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-APPEND_SPLASH = False
 MEDIA_URL ='/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 #cloudinary settings
 cloudinary.config(
@@ -160,3 +165,5 @@ cloudinary.config(
   api_key = environ.get('CLOUDINARY_API_KEY'),
   api_secret = environ.get('CLOUDINARY_API_SECRET') 
 )
+
+django_heroku.settings(locals())

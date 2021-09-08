@@ -1,4 +1,4 @@
-{% load bootstrap4%}
+{% load bootstrap4 %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -10,20 +10,22 @@
     {% else %}
     <title>Gallery</title>
     {% endif %}
-
-    {% block styles%}
-        {% bootstrap_css %}
+  
+     <link rel="stylesheet" type="text/css" href="{% static '/css/style.css' %}">
+     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     
-    {% endblock %}
+  
 
 </head>
 <body>
+    {% bootstrap_css %}
     {% include 'navbar.html' %}
     
     {% block content %}
-       
+      
     {% endblock %}
 
+    
     {% block scripts %}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
      {% bootstrap_javascript %}
