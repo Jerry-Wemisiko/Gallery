@@ -1,6 +1,6 @@
 {% extends 'all-photos/base.html' %}
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="UTF-8">
@@ -17,7 +17,7 @@
     <div class="container">
         {% for photo in images %}
                 
-                <div class="row" id="photo">
+                <div class="row" id= "photo">
 
                     <div class="col-sm-12 ">
                         <h5 class="head">{{photo.name}}</h5>
@@ -43,16 +43,17 @@
                         </button>
                             </div>
 
+
                             <div class="modal-body">
 
                                 <img class="img-responsive" src="{{photo.image.url}}" alt="Image" height="400px" width="300px" >
                                 <div class="moreinfo">
                                     <h6>{{photo.category}}</h6>
-
                                     <p>{{photo.description}}</p>
                                 </div>
 
                             </div>
+
 
                             <div class="modal-footer">
                                 <button type="button"  class="btn btn-danger" data-dismiss="modal">Close</button>
