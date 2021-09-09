@@ -34,9 +34,9 @@ SECRET_KEY = environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = (environ.get('DEBUG', 'False')=='True')
 DEBUG = True
+ 
 ALLOWED_HOSTS = environ.get('ALLOWED_HOSTS')
 
-DEBUG = environ.get('DEBUG')
 
 
 # Application definition
@@ -49,14 +49,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'cloudinary',
     'bootstrap4',
+    'cloudinary',
+    
     
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+      'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -90,7 +91,6 @@ WSGI_APPLICATION = 'gallery.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 PRODUCTION = environ.get('PRODUCTION')
-
 DATABASES ={}
 if PRODUCTION == 'True':
     DATABASES['default'] = db_url.config()
@@ -144,11 +144,13 @@ USE_TZ = True
 # STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
 
-    os.path.join(BASE_DIR, 'static'), 
+STATIC_ROOT = BASE_DIR / 'static'
+# STATICFILES_DIRS = [
 
-]
+#     os.path.join(BASE_DIR, 'static'), 
+
+# ]
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
@@ -160,7 +162,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL ='/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-
+APPEND_SLASH = False
 #cloudinary settings
 cloudinary.config(
   cloud_name = environ.get('CLOUDINARY_CLOUD_NAME'),

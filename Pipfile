@@ -11,6 +11,7 @@ whitenoise = "*"
 gunicorn = "*"
 cloudinary = "*"
 django-heroku = "*"
+bootstrap4 = "*"
 
 [dev-packages]
 
