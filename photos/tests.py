@@ -53,7 +53,7 @@ class ImageTest(TestCase):
 
     
 class CategoryTestClass(TestCase):
-    # Set Up Method
+
     def setUp(self):
         self.lifestyle = Category(category='Lifestyle')
         self.lifestyle.save_category()

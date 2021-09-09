@@ -8,7 +8,7 @@ def homepage(request):
 
     title = 'Home'
     images = Image.get_images()
-    return render(request, 'all-photos/photos.html',{'title':title, "images":images})
+    return render(request, 'all-photos/photos.html',{'title':title, 'images':images})
 
 
 def location(request,location):
