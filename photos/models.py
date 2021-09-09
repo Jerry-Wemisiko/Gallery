@@ -55,7 +55,7 @@ class Image(models.Model):
     description = models.CharField(max_length=100)
     location = models.ForeignKey(Location,on_delete=models.CASCADE)
     category = models.ForeignKey(Category,on_delete=models.CASCADE ,blank=True)
-    image = CloudinaryField('image' ,default= "Pic")
+    image = CloudinaryField('images')
 
 
     def __str__(self) -> str:
