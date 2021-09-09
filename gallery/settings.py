@@ -89,6 +89,7 @@ WSGI_APPLICATION = 'gallery.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 PRODUCTION = environ.get('PRODUCTION')
+
 DATABASES ={}
 if PRODUCTION == 'True':
     DATABASES['default'] = db_url.config()
