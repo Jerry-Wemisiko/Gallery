@@ -1,4 +1,3 @@
-import photos
 from django.http.response import Http404
 from django.shortcuts import render
 from .models import Image,Category,Location
