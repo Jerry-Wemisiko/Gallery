@@ -21,11 +21,6 @@ class Location(models.Model):
     def get_location_by_id(self,id):
         location = Location.objects.get(id=id)
         return location
-    
-
-    
-    
-
 
 class Category(models.Model):
     category = models.CharField(max_length=30)

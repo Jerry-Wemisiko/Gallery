@@ -98,9 +98,9 @@ else:
     DATABASES = {
             'default': {
                 'ENGINE': 'django.db.backends.postgresql',
-                'NAME': environ.get('DB_NAME'),
-                'USER': environ.get('DB_user'),
-                'PASSWORD': environ.get('DB_PASSWORD')
+                'NAME':os.environ.get('DB_NAME'),
+                'USER': os.environ.get('DB_USER'),
+                'PASSWORD': os.environ.get('DB_PASSWORD')
 
             }
     }
@@ -146,11 +146,11 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_ROOT = BASE_DIR / 'static'
-# STATICFILES_DIRS = [
+STATICFILES_DIRS = [
 
-#     os.path.join(BASE_DIR, 'static'), 
+    os.path.join(BASE_DIR, 'static'), 
 
-# ]
+]
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
