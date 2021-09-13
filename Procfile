@@ -1,1 +1,1 @@
-web: gunicorn gallery.wsgi
+web: gunicorn gallery.wsgi --timeout 60 --keep-alive 5 --log-level debug
