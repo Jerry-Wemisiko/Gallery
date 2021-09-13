@@ -13,7 +13,7 @@ a personal gallery application that you display your photos for others to see.**
 ## Setup Instruction
 To access this project on your local files, you can clone it using these steps
 1. Open your terminal
-1. Use this command to clone $ git clone https://github.com/Jerry-Wemisiko/Blog.git
+1. Use this command to clone $ git clone https://github.com/Jerry-Wemisiko/Gallery.git
 1. This will clone the repositoty into your local folder
 *****
 ### Live Link
@@ -21,9 +21,10 @@ Or you can access the web application directly via this [LIVE LINK](https://skyl
 ******
 ## Dependencies
 *Django
-*django-bootstrap4
-*gunicorn
+*Bootstrap4
+*Gunicorn
 *Cloudinary
+*Postgres
 *****
 ## Technologies Used
 * HTML
