@@ -18,13 +18,11 @@ def location(request,location):
 
 
 def search_results(request):
-    if 'category' in request.GET and request.GET["category"]:
-        search_image = request.GET("category")
-        searched_images = Image.search_image_category(search_image)
-        message = f'{search_image}'
-
-        return render(request, 'all-photos/search.html', {'message':message, "photos":searched_images})
+    if request.method == 'POST':
+        searched = request.POST['searched']
+        categories =Category.objects.filter(category__contains=searched)
+        
+        return render(request, 'all-photos/search.html', {"searched": searched},{"categories": categories})
     else:  
-        message = 'You have not searched '
-        return render(request, 'all-photos/search.html', {'message': message})
+        return render(request, 'all-photos/search.html')
 

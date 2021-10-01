@@ -1,73 +1,24 @@
 {% extends 'all-photos/base.html' %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+{% block content %}
+<center>
 
-</head>
-<body>
+    {% if searched %}
+
+    <h1>You searched for
+         {{searched}} 
+    </h1>
+    <br>
+    {% for category in categories %}
+
+        {{category}} <br>   
+
+    {% endfor %}
     
-{%block content %}
+    {% else %}
+    <h1>You have not searched</h1>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="row">
-                    {% if images %}
-                      <h2>Found {{images|length }} of searched image {{message}}</h2>
-                    {% else %}
-                      <h2 > Found 0 image for the search image {{message}}</h2>
-                    {% endif %}
-                
-                  </div>
-            </div>
-        </div>
+    {% endif %}
 
-        <div class="container">
 
-        {% if images %}     
-        {% for photo in images %}
-
-            <div class="col-md-4">
-
-                <a href="" data-toggle= "modal" data-target="#{{photo.id}}"><img src="{{photo.image.url}}" class="img-responsive" alt="Image" width="1200px"></a>
-                <h4 id='des'>{{photo.description}}</h4>
-
-            </div>
-
-            <div class="modal fade" id="{{photo.id}}" role="dialog">
-                <div class="modal-dialog">
-
-                    <div class="modal-content modal-lg">
-                        <div class="modal-header">
-                            <h5 class="modal-title">{{photo.name}}</h5>
-                        </div>
-
-                        <div class="modal-body">
-                            <img class="img-responsive" src="{{photo.image.url}}" alt="Image" height="400px" width="300px" >
-                            <div class="moreinfo">
-                                <p>{{photo.description}}</p>
-                            </div>
-
-                        </div>
-
-                        <div class="modal-footer">
-                            <button type="button"  class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-        {% endfor %}
-        {% endif %}
-
-        </div>
-    </div>
-
+</center>
 {% endblock %}
-</body>
-</html>

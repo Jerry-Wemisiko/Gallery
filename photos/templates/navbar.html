@@ -1,5 +1,5 @@
 {% load static %}
-
+{% load bootstrap4 %}
 <style>
     *{
         box-sizing: border-box;
@@ -73,25 +73,40 @@
     }
 </style>
 <nav class="navbar">
-    <div class="brand-title">Pixapp</div>
-    <a href="#" class="toggle-button">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-    </a>
+    <div class="flex">
+        <div class="brand-title">Pixapp</div>
+        <a href="#" class="toggle-button">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </a>
+        <!-- <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Select Category
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <button class="dropdown-item" type="button">Developer</button>
+                <button class="dropdown-item" type="button">F1</button>
+                <button class="dropdown-item" type="button">Music</button>
+                <button class="dropdown-item" type="button">Tech companie</button>
+            </div>
+        </div> -->
+    </div>
+
     <div class="navbar-links">
+        
         <ul>
-            <li><a href="" >Home</a></li>
+            <li><a href="{% url 'homepage' %}" >Home</a></li>
             <li><a href="admin/" >Admin</a></li>
             
 
             <li class="nav navbar-nav navbar-right">
                 <li class="navbar-form-wrapper">
-                    <form class="navbar-form form-inline navbar-right" action="{% url 'search_results' %}" role="search">
-                        <div class="input-group search-box">
-                            <input type="text" id="search" class="form-control " name="business_name"
-                                placeholder="Search Image...">
-                        </div>
+                    <form action="{% url 'searchresults' %}" method="POST" class="d-flex">
+                        {% csrf_token %}
+
+                        <input type="text" class="form-control me-2" type="search" placeholder="Search Category" aria-level="Search" name="searched">
+                        <button type="submit" class="btn btn-outline-secondary"></button>
                     </form>
                 </li>
         </ul>
